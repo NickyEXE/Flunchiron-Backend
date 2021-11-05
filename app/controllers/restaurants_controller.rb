@@ -4,4 +4,10 @@ class RestaurantsController < ApplicationController
     restaurants = Restaurant.all
     render json: restaurants
   end
+
+  def show
+    restaurant = Restaurant.find(params[:id])
+    render json: restaurant, serializer: RestaurantShowSerializer
+  end
+
 end
