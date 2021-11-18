@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 YelpSearch.new(10001).to_restaurants
+User.create(username: "Nicky", password: "guest")
+Restaurant.first.reviews.create(user: User.first, rating: 4, content: "This is the first review on this app!")
