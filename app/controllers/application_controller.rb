@@ -14,6 +14,10 @@ class ApplicationController < ActionController::API
     render json: {errors: invalid.record.errors.full_messages.to_sentence}, status: :unprocessable_entity
   end
 
+  def render_user_with_token(user)
+    render json: {user: ActiveModelSerializers::SerializableResource.new(user, serializer: UserSerializer), token: encode_token(user.id)}
+  end
+
 
   private
 
