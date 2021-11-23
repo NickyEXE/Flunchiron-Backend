@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/graphql", to: "graphql#execute"
   resources :users, only: [:create]
   resources :restaurants, only: [:index, :show] do
     resources :reviews, only: [:create]
