@@ -2,12 +2,12 @@ class YelpSearch
 
   attr_reader :response, :businesses
 
-  def initialize(location)
+  def initialize(location, kind_of_food="lunch", limit=50)
     url = "https://api.yelp.com/v3/businesses/search"
     params = {
-      term: "lunch",
+      term: kind_of_food,
       location: location,
-      limit: 50
+      limit: limit,
     }
 
     response = HTTP.auth("Bearer #{ENV["YELP_API_KEY"]}").get(url, params: params)
